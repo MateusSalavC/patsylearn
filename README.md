@@ -37,6 +37,15 @@ model.fit(data_train)
 print(model.score(data_test))
 
 # use PatsyTransformer to just select and transform features
+```
+# Functionality
+PatsyLearn provides two main classes:
+
+PatsyModel: This is a meta-estimator for Scikit-learn. It creates a design matrix using Patsy and feeds it into a Scikit-learn estimator.
+Transformer: This is a Scikit-learn transformer that utilizes a Patsy formula to transform and select features.
+Both classes are designed to operate on Pandas DataFrames. For supervised learning tasks using PatsyModel, the input DataFrame should contain both the data and the target.
+
+This adaptor simplifies the integration of statistical modeling provided by Patsy with machine learning algorithms provided by Scikit-learn, allowing for more streamlined data preprocessing and modeling.
 transformer = PatsyTransformer("sepal_length + np.log(petal_length) + petal_length:sepal_width")
 # transformer is a scikit-learn transformer
 
